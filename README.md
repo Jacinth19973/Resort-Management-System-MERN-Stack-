@@ -1,10 +1,212 @@
-# Resort-Management-System-MERN-Stack-
-. The system’s core functionality revolves around user convenience and operational efficiency—allowing customers to search resorts, make bookings, order food, manage payments through a virtual wallet, and generate invoices, while enabling administrators to oversee resort data, manage users, and track overall performance. 
+🌴 Resort Management System
 
-      The application architecture follows the MERN (MongoDB, Express.js, React, Node.js) stack to ensure scalability, modularity, and responsiveness. Data Flow Diagrams (DFDs) are used to illustrate process flows—such as user registration, authentication, resort listing, booking confirmation, staff assignment, food ordering, checkout, and PDF invoice generation—while Entity Relationship Diagrams (ERDs) define structured relationships among entities like USER, RESORT, BOOKING, STAFF, FOOD, and INVOICE.
+A full-stack hotel & resort management web application built using Next.js, Node.js/Express, MongoDB, and Cloudinary.
+This system allows customers to browse rooms, view details, check availability, and make bookings.
+It also includes a complete Admin Panel for managing rooms, reservations, users, and uploads.
 
-     The administrator dashboard provides intuitive tools for adding, updating, and deleting resorts, viewing user transactions, updating wallet balances, and analyzing booking statistics. The system employs JWT-based authentication and bcrypt hashing for secure user login and registration, ensuring strong data protection. Additionally, a chatbot module “Ask RMS Bot” has been integrated to guide users with booking-related FAQs, food menu queries, and general assistance.
+🚀 Features
+🏡 Frontend (Next.js)
 
-     Comprehensive black box and white box testing validated all functional modules, including booking verification, payment deduction, and automated PDF invoice generation, ensuring a reliable, user-centric experience. The system enhances transparency in resort operations, simplifies administrative control, and delivers a professional and automated digital booking workflow. Future advancements include email notifications, AI-powered recommendation systems, and mobile app integration to improve accessibility and personalization.
+Fully responsive UI
+
+Home page with featured rooms
+
+Room listing with price, type, and occupancy
+
+Dynamic room pages /rooms/[slug]
+
+Image carousel and gallery
+
+Booking form with date selection
+
+User authentication (login/register)
+
+User dashboard for booking history
+
+Global state management
+
+Integrated API calls to backend
+
+Error-free ESLint configuration
+
+SEO optimized Next.js pages
+
+⚙️ Backend (Node.js / Express)
+
+REST API for rooms, bookings, and users
+
+JWT-based authentication
+
+Secure password hashing (bcrypt)
+
+Room availability check
+
+Admin-only protected routes
+
+Booking creation & management
+
+Room CRUD operations
+
+Image upload using multer → cloudinary
+
+MongoDB schema for users, rooms, bookings
+
+Seed script to populate initial data (npm run seed)
+
+🗄️ Database (MongoDB)
+
+Document schemas for:
+
+Users
+
+Rooms
+
+Bookings
+
+Automatic relation mapping
+
+Indexing for efficient room lookup
+
+🛠️ Tech Stack
+Frontend
+
+Next.js 14
+
+React 18
+
+Axios
+
+Tailwind CSS
+
+Swiper.js (image carousel)
+
+Backend
+
+Node.js
+
+Express.js
+
+MongoDB + Mongoose
+
+JWT Authentication
+
+Multer
+
+Cloudinary SDK
+
+dotenv
+
+📦 Project Structure
+ResortManagementSystem/
+│
+├── frontend/
+│   ├── pages/
+│   ├── components/
+│   ├── styles/
+│   ├── utils/
+│   ├── public/
+│   └── package.json
+│
+├── backend/
+│   ├── controllers/
+│   ├── routes/
+│   ├── models/
+│   ├── middleware/
+│   ├── utils/
+│   ├── config/
+│   └── package.json
+│
+└── README.md
+
+🧑‍💻 Installation & Setup
+1️⃣ Clone the Repository
+git clone https://github.com/YOUR-USERNAME/ResortManagementSystem.git
+cd ResortManagementSystem
+
+🔧 Backend Setup
+2️⃣ Install dependencies
+cd backend
+npm install
 
 
+If multer version error comes, correct version is:
+
+npm install multer@1.4.5-lts.1
+
+3️⃣ Setup environment variables
+
+Create a .env file:
+
+PORT=5000
+MONGO_URI=your_mongodb_url
+JWT_SECRET=your_secret
+CLOUDINARY_CLOUD_NAME=xxxx
+CLOUDINARY_API_KEY=xxxx
+CLOUDINARY_API_SECRET=xxxx
+
+4️⃣ Run seed script (optional)
+npm run seed
+
+5️⃣ Start backend server
+npm start
+
+🎨 Frontend Setup
+6️⃣ Install dependencies
+cd ../frontend
+npm install
+
+7️⃣ Start frontend
+npm run dev
+
+
+Frontend will start at:
+👉 http://localhost:3000
+
+Backend runs at:
+👉 http://localhost:5000
+
+🧰 Admin Panel
+
+Admin can:
+
+Add/edit/delete rooms
+
+Upload images
+
+View all bookings
+
+Manage users
+
+Approve or reject bookings
+
+Admin login made through seeded data:
+
+email: admin@example.com
+password: 123456
+
+📸 Screenshots (Optional Section)
+
+You can add your screenshots here.
+
+Example:
+
+/screenshots/home.png
+/screenshots/room_details.png
+
+📡 API Endpoints (Summary)
+Rooms
+GET /api/rooms
+GET /api/rooms/:slug
+POST /api/rooms (Admin)
+PUT /api/rooms/:id (Admin)
+DELETE /api/rooms/:id (Admin)
+
+Bookings
+POST /api/bookings
+GET /api/bookings/user
+GET /api/bookings (Admin)
+
+Users
+POST /api/auth/register
+POST /api/auth/login
+GET /api/auth/profile
